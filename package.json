@@ -1,0 +1,12 @@
+{
+  "name": "node-lab8",
+  "version": "0.0.1",
+  "description": "Solucion al ejercio de NodeJs pero con postman como cliente",
+  "main": "./bin/www",
+  "scripts": {
+  	"start": "node ./bin/www",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Joshimar Valencia",
+  "license": "ISC"
+}

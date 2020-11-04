@@ -1,0 +1,41 @@
+#! /usr/bin/env node
+var get = require('../server/get/get');
+
+function app(req , res){
+	if(req.method==='GET'){
+		get(req,res);
+	}
+	else 
+	if(req.method ==='POST'){
+		post(req,res);
+	}
+	else
+		res.end();
+}
+function post (req , res){
+	var body = '';
+	req.on('data',data =>{
+		//console.log("data es >"+data);
+		if (data=="dcopalupe/123456"){
+			console.log("Bienvenido Dan Israel Copa Lupe  ");
+		}
+		else if(data=="jalanocaquino/1q2w3e4"){
+			console.log("Bienvenido Jorge Andres Alanoca Quino");
+		}
+		else if(data=="acondoriquispe/54321"){
+			console.log("Bienvenido Ana Condori Quispe");
+		}
+		else {
+			console.log("NO esta en la base de datos o usuario incorrecto");
+		}
+		//body+=data;
+	});
+
+	req.on('end',()=>{
+		console.log(body);
+		res.statusCode = 200;
+		res.setHeader('Content-Type','application/json');
+		res.end();
+	})
+}
+module.exports = app;
